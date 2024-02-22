@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenhouse Gas Control Measures</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('/Users/adityakhot/Downloads/image.jpg'); /* Add this line */
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #controlMeasures {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: rgba(0, 0, 0, 1.0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Control Measures for GHG Emission</h1>
+        <h2>Select Greenhouse Gas</h2>
+
+        <label for="gasSelect">Select Gas:</label>
+        <select id="gasSelect">
+            <option value="CO2">CO2</option>
+            <option value="N2O">N2O</option>
+            <option value="CH4">CH4</option>
+        </select>
+
+        <div id="controlMeasures"></div>
+    </div>
+
+    <script>
+        document.getElementById('gasSelect').addEventListener('change', function() {
+            var selectedGas = this.value;
+            var controlMeasuresElement = document.getElementById('controlMeasures');
+
+            var controlMeasures = {
+                'CO2': 'Carbon dioxide is the most prevalent greenhouse gas emitted from human activities.<br> To control and reduce CO2 emissions, several measures are implemented. <br>One of the primary strategies is transitioning to cleaner energy sources, such as solar, wind, and hydroelectric power, which produce electricity without emitting CO2. <br>Energy efficiency improvements in industries, buildings, and transportation also play a crucial role in mitigating CO2 emissions. <br>Additionally, afforestation and reforestation efforts help absorb CO2 from the atmosphere, acting as a natural carbon sink.',
+                'N2O': 'Nitrous oxide is released from agricultural activities, industrial processes, and combustion of fossil fuels. <br>To control N2O emissions, agricultural practices can be optimized. <br>Precision fertilization techniques and the use of nitrification inhibitors help reduce the release of nitrous oxide from soils. <br>Additionally, incorporating cover crops and rotating crops can enhance nutrient management and decrease N2O emissions. <br>Furthermore, implementing advanced technologies in industrial processes and adopting cleaner energy sources can mitigate N2O emissions from industrial sources.',
+                'CH4': 'Methane is a potent greenhouse gas commonly emitted from agriculture, livestock operations, landfills, and energy production. <br>Control measures for methane involve various strategies. <br>In agriculture, practices like improved manure management, proper rice field management, and enteric fermentation reduction techniques can significantly reduce methane emissions. <br>Additionally, capturing and utilizing methane from landfills and wastewater treatment facilities is an effective measure. In the energy sector, preventing fugitive emissions during production, processing, and transportation of natural gas is crucial in controlling methane release.'
+            };
+
+            controlMeasuresElement.innerHTML = `<h2>Control Measures for ${selectedGas}</h2><p>${controlMeasures[selectedGas]}</p>`;
+        });
+    </script>
+</body>
+
+</html>
